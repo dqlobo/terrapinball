@@ -7,9 +7,12 @@ public class FlipperScript : MonoBehaviour {
 	// if not left flipper, use negative sign before angle
 	public bool isLeftFlipper;
 	bool isEngaged;
+
 	KeyCode key;
 	Vector3 baseAngle;
 	Rigidbody rb;
+
+
 	void Start () {
 		isEngaged = false;		
 		key = isLeftFlipper ? KeyCode.LeftArrow : KeyCode.RightArrow;
@@ -17,7 +20,6 @@ public class FlipperScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		CheckControls ();
 	}
