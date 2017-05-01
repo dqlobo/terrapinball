@@ -8,16 +8,15 @@ public class LetterScript : MonoBehaviour {
 	UnityAction activateListener;
 	UnityAction deactivateListener;
 	Light light;
+	SpriteRenderer letterSprite;
 
-	public Material letterMaterial;
 	public char letter;
-	void Awake () {
+
+	void OnEnable () {
 		activateListener = new UnityAction (LightOn);
 		deactivateListener = new UnityAction (LightOn);
 		light = GetComponent<Light> ();
-	}
-
-	void OnEnable () {
+		letterSprite = GetComponent<SpriteRenderer> ();
 		SetLightOn (false);
 		EventManager.StartListening ("ActivateLetter" + letter, activateListener);
 		EventManager.StartListening ("DeactivateLetter" + letter, deactivateListener);
@@ -37,8 +36,10 @@ public class LetterScript : MonoBehaviour {
 	}
 
 	void SetLightOn(bool lightOn) {		
-		letterMaterial.color = lightOn ? new Color (30, 0, 0) : new Color (8, 0, 0);
+		print ("set light: " +letter+' '+ lightOn);
 		light.intensity = lightOn ? 1F : 0F;
+//		letterSprite.color = lightOn ? new Color (30, 0, 0) : new Color (, 0, 0);
+		letterSprite.sortingOrder = lightOn ? 2 : 0;
 		light.range = lightOn ? 15F : 0F;
 	}
 }
