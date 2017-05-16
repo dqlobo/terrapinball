@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+//using UnityEngine.
 public class LaunchScript : MonoBehaviour {
 
 	UnityAction launchAction;
@@ -27,7 +27,7 @@ public class LaunchScript : MonoBehaviour {
 	}
 
 	void DoLaunch () {	
-		print ("do launch");	
+		GetComponent<AudioSource> ().Play ();
 		StartCoroutine (LaunchMove ());
 	}
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour {
 	public float secondsRemaining;
@@ -23,7 +24,9 @@ public class TimerScript : MonoBehaviour {
 		int secs = (int) secondsRemaining % 60;
 		timeLabel.text = string.Format ("{0:D2}:{1:D2}", mins, secs);
 
-		if (secondsRemaining == 0)
+		if (secondsRemaining <= 0) {
 			EventManager.TriggerEvent ("TimeUp");
+			SceneManager.LoadScene ("MenuScene");
+		}
 	}
 }
