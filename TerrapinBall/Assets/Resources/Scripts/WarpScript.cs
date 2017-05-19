@@ -16,6 +16,9 @@ public class WarpScript : MonoBehaviour {
 	}
 
 	IEnumerator HoldRoutine(float duration, GameObject gameObject) {
+		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
 		if (!audioSource.isPlaying) {
 			audioSource.Play ();
 		}
@@ -26,6 +29,6 @@ public class WarpScript : MonoBehaviour {
 		yield return new WaitForFixedUpdate ();
 
 		EventManager.TriggerEvent ("PointsBig");
-		gameObject.GetComponent<Rigidbody> ().AddForce (transform.up * -5000 + transform.right * -2000);
+		gameObject.GetComponent<Rigidbody> ().AddForce (transform.up * -2000 + transform.right * -10000);
 	}
 }

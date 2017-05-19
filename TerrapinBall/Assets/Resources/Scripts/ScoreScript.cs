@@ -43,7 +43,7 @@ public class ScoreScript : MonoBehaviour {
 		StartCoroutine(scoreBumpIterator(120));
 	}
 	private void bumpScoreBig () {
-		StartCoroutine(scoreBumpIterator(500));
+		StartCoroutine(scoreBumpIterator(1000));
 	}
 
 	public void bumpScore (int amount) {
