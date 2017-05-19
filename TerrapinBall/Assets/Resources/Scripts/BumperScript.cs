@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class BumperScript : MonoBehaviour {
 	
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnCollisionEnter (Collision collision) {
 		EventManager.TriggerEvent ("PointsSmall");
 		Rigidbody otherRB = collision.rigidbody;
@@ -22,4 +14,5 @@ public class BumperScript : MonoBehaviour {
 			GetComponent<AudioSource> ().Play ();
 		}
 	}
+
 }

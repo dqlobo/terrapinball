@@ -4,17 +4,14 @@ using UnityEngine;
 using UnityEngine.Events;
 public class ControlManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (Input.anyKeyDown) {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				EventManager.TriggerEvent ("LAUNCH");
 			}
 		}
+		// have not yet migrated controls for flippers to here yet
+		// can handle platform-specific controls here
 	}
 }

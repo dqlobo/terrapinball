@@ -20,11 +20,6 @@ public class LaunchScript : MonoBehaviour {
 	void OnDisable () {
 		EventManager.StopListening ("LAUNCH", launchAction);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void DoLaunch () {	
 		GetComponent<AudioSource> ().Play ();

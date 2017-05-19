@@ -5,12 +5,10 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour {
 
 	public Transform follow;
-	Vector3 oldFollowPosition;
 	public Vector3 minPosition;
 	public Vector3 maxPosition;
 
 	void Start () {
-		oldFollowPosition = new Vector3(follow.position.x, follow.position.y, follow.position.z);
 		UpdatePosition ();
 	}
 
@@ -19,8 +17,7 @@ public class CameraScript : MonoBehaviour {
 	}
 
 	void UpdatePosition() {
-		Vector3 newPos = transform.position,
-			offset = (Vector3.up + Vector3.back) * 15.0F;
+		Vector3 newPos = transform.position;
 		if (InCamRange (follow.position.x, 'x')) {
 			newPos.x = follow.position.x;
 		}

@@ -20,11 +20,12 @@ public class WarpScript : MonoBehaviour {
 			audioSource.Play ();
 		}
 		yield return new WaitForSeconds(duration);
-		gameObject.transform.position = warpTo.position;
-		EventManager.TriggerEvent ("PointsBig");
 
-		yield return new WaitForSeconds(duration);
+		gameObject.transform.position = warpTo.position;
+		gameObject.transform.rotation = warpTo.rotation;
 		yield return new WaitForFixedUpdate ();
-		gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.forward * 50000 + Vector3.left * 20000);
+
+		EventManager.TriggerEvent ("PointsBig");
+		gameObject.GetComponent<Rigidbody> ().AddForce (transform.up * -5000 + transform.right * -2000);
 	}
 }

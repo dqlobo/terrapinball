@@ -7,7 +7,7 @@ public class LetterScript : MonoBehaviour {
 
 	UnityAction activateListener;
 	UnityAction deactivateListener;
-	Light light;
+	Light letterLight;
 	SpriteRenderer letterSprite;
 
 	public char letter;
@@ -15,7 +15,7 @@ public class LetterScript : MonoBehaviour {
 	void OnEnable () {
 		activateListener = new UnityAction (LightOn);
 		deactivateListener = new UnityAction (LightOn);
-		light = GetComponent<Light> ();
+		letterLight = GetComponent<Light> ();
 		letterSprite = GetComponent<SpriteRenderer> ();
 		SetLightOn (false);
 		EventManager.StartListening ("ActivateLetter" + letter, activateListener);
@@ -36,9 +36,8 @@ public class LetterScript : MonoBehaviour {
 	}
 
 	void SetLightOn(bool lightOn) {		
-//		print ("set light: " +letter+' '+ lightOn);
-		light.intensity = lightOn ? 1F : 0F;
+		letterLight.intensity = lightOn ? 1F : 0F;
 		letterSprite.sortingOrder = lightOn ? 2 : 0;
-		light.range = lightOn ? 15F : 0F;
+		letterLight.range = lightOn ? 15F : 0F;
 	}
 }

@@ -35,7 +35,7 @@ public class FlipperScript : MonoBehaviour {
 			StartCoroutine (ToggleFlipper (0.07F));		
 		} 	
 	}
-
+		
 	float getTargetAngle(bool engagedFlag) {
 		return engagedFlag ^ isLeftFlipper ? 90.0F : -90.0F;	
 	}
