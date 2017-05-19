@@ -1,5 +1,5 @@
 ## Description:
-Terrapinball is a pinball game made in Unity3D. Features include: Custom modeling, Custom sound effects, point-boosing warp Tunnel from McKeldin Fountain, and animated HUD menu (Fading out life icons, ticking score, and clock).
+Terrapinball is a pinball game made in Unity3D. Features include: Custom modeling, Custom sound effects, point-boosing warp Tunnel from McKeldin Fountain, and animated HUD menu (Fading out life icons, ticking score, and clock). Player has four lives.
 
 -----------
 -----------
