@@ -8,58 +8,61 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioSource))]
 public class ScoreScript : MonoBehaviour {
 	public AudioClip pointUpSound;
-	int score;
 	Text textLabel;
 	UnityAction smallBumpListener;
+	UnityAction bigBumpListener;
+
 	AudioSource audioSrc;
 
 	void Start () {
-		score = 0;
+		Score.score = 0;
 		textLabel = GetComponent<Text> ();
 		audioSrc = GetComponent<AudioSource> ();
 	}
 
 	void Awake () {
 		smallBumpListener = new UnityAction (bumpScoreSmall);
+		bigBumpListener = new UnityAction (bumpScoreBig);
+
 	}
 
 	void OnEnable () {
 		EventManager.StartListening ("PointsSmall", smallBumpListener);
+		EventManager.StartListening ("PointsBig", bigBumpListener);
+
 	}
 
 	void OnDisable () {
 		EventManager.StopListening ("PointsSmall", smallBumpListener);
+		EventManager.StopListening ("PointsBig", bigBumpListener);
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
 
 	}
 
 	private void bumpScoreSmall () {
-//		bumpScore (120);
 		StartCoroutine(scoreBumpIterator(120));
-		
+	}
+	private void bumpScoreBig () {
+		StartCoroutine(scoreBumpIterator(500));
 	}
 
 	public void bumpScore (int amount) {
-		score += amount;
+		Score.score += amount;
 		audioSrc.Play ();
-		textLabel.text = score + "";
+		textLabel.text = Score.score + "";
 		checkLetterLights ();
 	}
 
 	void checkLetterLights() {
-		if (score > 120*20)
+		if (Score.score > 120*50)
 			EventManager.TriggerEvent ("ActivateLetterS");
-		else if (score > 120*15)
+		else if (Score.score > 120*40)
 			EventManager.TriggerEvent ("ActivateLetterP");
-		else if (score > 120*10)
+		else if (Score.score > 120*20)
 			EventManager.TriggerEvent ("ActivateLetterR");
-		else if (score > 120*5)
+		else if (Score.score > 120*5)
 			EventManager.TriggerEvent ("ActivateLetterE");
-		else if (score > 120)
+		else if (Score.score > 120)
 			EventManager.TriggerEvent ("ActivateLetterT");
 	}
 
@@ -69,8 +72,6 @@ public class ScoreScript : MonoBehaviour {
 			factor = 10;
 		while (curr > 0) {
 			temp = (int) Mathf.Max((int) amount / factor, (int)amount % factor);
-			print (temp);
-			print (amount);
 			bumpScore (temp);
 			curr -= temp;
 			yield return new WaitForFixedUpdate ();

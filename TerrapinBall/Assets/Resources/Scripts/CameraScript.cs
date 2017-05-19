@@ -15,11 +15,6 @@ public class CameraScript : MonoBehaviour {
 	}
 
 	void Update () {
-//		Vector3 followPosition = transform.position + follow.position - oldFollowPosition;
-//		float xPos = !InCamRange (follow.position.x, 'x') ? transform.position.x : followPosition.x,
-//		yPos = !InCamRange (follow.position.y, 'y') ? transform.position.y : followPosition.y,
-//		zPos = !InCamRange (follow.position.z, 'z') ? transform.position.z : followPosition.z;
-//		transform.position = new Vector3(xPos, yPos, zPos);
 		UpdatePosition ();
 	}
 
@@ -30,18 +25,12 @@ public class CameraScript : MonoBehaviour {
 			newPos.x = follow.position.x;
 		}
 		if (InCamRange (follow.position.y, 'y')) {
-			newPos.y = follow.position.y + 15.0F;
+			newPos.y = follow.position.y + 30.0F;
 		}
 		if (InCamRange (follow.position.z, 'z')) {
-			newPos.z = follow.position.z - 25.0F;
+			newPos.z = follow.position.z - 30.0F;
 		}
 		transform.position = newPos;
-//		if (InCamRange (follow.position.x, 'x')
-//			&& InCamRange (follow.position.y, 'y')
-//			&& InCamRange (follow.position.z, 'z')) {
-//			transform.position = follow.position + (Vector3.up + Vector3.back) * 15.0F;
-//			oldFollowPosition = follow.position;
-//		}
 	}
 
 	bool InCamRange(float val, char axis) {

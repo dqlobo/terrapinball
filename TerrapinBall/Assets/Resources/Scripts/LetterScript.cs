@@ -36,9 +36,8 @@ public class LetterScript : MonoBehaviour {
 	}
 
 	void SetLightOn(bool lightOn) {		
-		print ("set light: " +letter+' '+ lightOn);
+//		print ("set light: " +letter+' '+ lightOn);
 		light.intensity = lightOn ? 1F : 0F;
-//		letterSprite.color = lightOn ? new Color (30, 0, 0) : new Color (, 0, 0);
 		letterSprite.sortingOrder = lightOn ? 2 : 0;
 		light.range = lightOn ? 15F : 0F;
 	}

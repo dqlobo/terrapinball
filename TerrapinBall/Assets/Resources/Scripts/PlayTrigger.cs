@@ -14,6 +14,6 @@ public class PlayTrigger : MonoBehaviour {
 
 	public void OnPointerDownDelegate(PointerEventData data)
 	{
-		print ("OnPointerDownDelegate called.");
+//		print ("OnPointerDownDelegate called.");
 	}
 }

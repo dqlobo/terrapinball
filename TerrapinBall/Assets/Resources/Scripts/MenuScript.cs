@@ -8,5 +8,7 @@ public class MenuScript : MonoBehaviour {
 	public void playGame () {
 		SceneManager.LoadScene ("MainScene");
 	}
-
+	public void mainMenu () {
+		SceneManager.LoadScene ("MenuScene");
+	}
 }

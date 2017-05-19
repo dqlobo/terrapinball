@@ -33,7 +33,7 @@ public class DeadScript : MonoBehaviour {
 			lifeIcons [lifeCount--].SetActive (false);
 			EventManager.TriggerEvent ("DEAD");
 		} else {
-			SceneManager.LoadScene ("MenuScene");			
+			SceneManager.LoadScene ("EndScene");			
 		}
 		yield return null;
 	}

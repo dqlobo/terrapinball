@@ -25,8 +25,7 @@ public class TimerScript : MonoBehaviour {
 		timeLabel.text = string.Format ("{0:D2}:{1:D2}", mins, secs);
 
 		if (secondsRemaining <= 0) {
-			EventManager.TriggerEvent ("TimeUp");
-			SceneManager.LoadScene ("MenuScene");
+			SceneManager.LoadScene ("EndScene");
 		}
 	}
 }
