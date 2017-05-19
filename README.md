@@ -1,5 +1,9 @@
-## Works Cited:
+## Description:
+Terrapinball is a pinball game made in Unity3D. Features include: Custom modeling, Custom sound effects, point-boosing warp Tunnel from McKeldin Fountain, and animated HUD menu (Fading out life icons, ticking score, and clock).
 
+-----------
+-----------
+## Works Cited:
 
 --------
 ### Images
@@ -28,3 +32,7 @@ Norwester: https://www.fontsquirrel.com/fonts/norwester
 EventManager.cs: https://unity3d.com/learn/tutorials/topics/scripting/events-creating-simple-messaging-system?playlist=17117
 Score.cs: http://answers.unity3d.com/questions/36738/how-can-i-pass-data-between-two-levels.html (Idea to use static class to pass data between scenes)
 General reference: https://docs.unity3d.com/ScriptReference/ (Used to understand and implement best practices)
+
+--------
+
+*Note: all sound effects and models were created by me in Garageband and Blender.*
